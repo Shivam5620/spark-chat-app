@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: spark-chat
+    runtime: node
+    plan: free
+    buildCommand: npm run build:render
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SAME_SITE
+        value: lax
+      - key: VITE_API_URL
+        value: ""

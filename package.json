@@ -1,0 +1,17 @@
+{
+  "name": "spark-chat",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "install:all": "npm --prefix backend install --include=dev && npm --prefix frontend/vite-project install --include=dev",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend/vite-project run dev",
+    "build": "npm --prefix frontend/vite-project run build",
+    "test": "npm --prefix backend test",
+    "start": "node backend/server.js",
+    "build:render": "npm --prefix backend ci --omit=dev && npm --prefix frontend/vite-project ci --include=dev && npm run build"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
